@@ -15,16 +15,21 @@ ToDoGoal::ToDoGoal(QWidget *parent)
     m_pEditAction = new QAction(this);
     m_pEditAction->setIcon(QIcon(":/icons/edit.png"));
 
+    m_pMarkAsDoneAction = new QAction(this);
+    m_pMarkAsDoneAction->setIcon(QIcon(":/icons/done.png"));
+
     m_pToolBar = new QToolBar("title", this);
     m_pToolBar->addAction(m_pAddAction);
     m_pToolBar->addAction(m_pRemoveAction);
     m_pToolBar->addAction(m_pEditAction);
+    m_pToolBar->addAction(m_pMarkAsDoneAction);
 
     addToolBar(m_pToolBar);
 
-    connect(m_pAddAction,    &QAction::triggered, m_pMainTasksWidget, &MainTasksWidget::addTaskSlot);
-    connect(m_pRemoveAction, &QAction::triggered, m_pMainTasksWidget, &MainTasksWidget::removeTaskSlot);
-    connect(m_pEditAction,   &QAction::triggered, m_pMainTasksWidget, &MainTasksWidget::editTaskSlot);
+    connect(m_pAddAction,        &QAction::triggered, m_pMainTasksWidget, &MainTasksWidget::addTaskSlot);
+    connect(m_pRemoveAction,     &QAction::triggered, m_pMainTasksWidget, &MainTasksWidget::removeTaskSlot);
+    connect(m_pEditAction,       &QAction::triggered, m_pMainTasksWidget, &MainTasksWidget::editTaskSlot);
+    connect(m_pMarkAsDoneAction, &QAction::triggered, m_pMainTasksWidget, &MainTasksWidget::markAsDoneSlot);
 }
 
 ToDoGoal::~ToDoGoal()

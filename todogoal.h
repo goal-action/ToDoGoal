@@ -19,5 +19,6 @@ private:
     QAction* m_pAddAction;
     QAction* m_pRemoveAction;
     QAction* m_pEditAction;
+    QAction* m_pMarkAsDoneAction;
 };
 #endif // TODOGOAL_H

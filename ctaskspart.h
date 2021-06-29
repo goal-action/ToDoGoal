@@ -19,7 +19,9 @@ public:
     QSortFilterProxyModel* getSortModel(){return m_pSortModel;}
     QTableView* getView(){return m_pView;}
 
-    //метод для установки режима сортировки(QRegularExpression)
+    void setFilter(const QString pattern, int column);
+    void deleteRow(const int row);
+
 signals:
 
 };

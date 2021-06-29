@@ -10,21 +10,39 @@
 
 //== Task - структура, которая представляет задачу ===============================
 struct Task{
+    enum{NONE = -1, FAILED, DONE, PENDING};
+
     QString task;
     QString responsible;
     QString responsible_email;
     QString deadline;
-    Task(QString task, QString responsible, QString responsible_email, QString deadline){
+    int status;
+    Task(QString task, QString responsible, QString responsible_email, QString deadline, int status = NONE){
         this->task = task;
         this->responsible = responsible;
         this->responsible_email = responsible_email;
         this->deadline = deadline;
+        this->status = status;
     }
+
+    static int generateStatus(Task task){
+        QString deadlineString = task.deadline;
+        int year = deadlineString.mid(0, deadlineString.indexOf('-')).toInt();
+        int month = deadlineString.mid(deadlineString.indexOf('-') + 1, 2).toInt();
+        int day = deadlineString.mid(deadlineString.lastIndexOf('-') + 1, 2).toInt();
+        if(QDate::currentDate() < QDate(year, month, day))
+            return PENDING;
+        return FAILED;
+    }
+
     bool operator==(const Task& second){
-        return task == second.task &&
-               responsible == second.responsible &&
+        return task              == second.task &&
+               responsible       == second.responsible &&
                responsible_email == second.responsible_email &&
-               deadline == second.deadline;
+               deadline          == second.deadline;
+    }
+    void print() const{
+        qDebug() << task << responsible << responsible_email << deadline;
     }
 };
 
@@ -121,6 +139,9 @@ public slots:
     void addTaskSlot();
     void removeTaskSlot();
     void editTaskSlot();
+    void markAsDoneSlot();
+
+    void testSlot();
 };
 
 #endif // MAINTASKSWIDGET_H

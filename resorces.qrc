@@ -3,5 +3,6 @@
         <file>icons/add.png</file>
         <file>icons/edit.png</file>
         <file>icons/remove.png</file>
+        <file>icons/done.png</file>
     </qresource>
 </RCC>
