@@ -140,8 +140,6 @@ public slots:
     void removeTaskSlot();
     void editTaskSlot();
     void markAsDoneSlot();
-
-    void testSlot();
 };
 
 #endif // MAINTASKSWIDGET_H

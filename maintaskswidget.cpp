@@ -22,7 +22,7 @@ MainTasksWidget::MainTasksWidget(QWidget* parent)
 
     readTasks();
 
-    //=====================================================
+    //== Настройка визуала ===================================================
     m_pPendingTasksPart = new CTasksPart(m_pMainModel);
     m_pPendingTasksPart->setFilter("2", 4);
 
@@ -33,16 +33,6 @@ MainTasksWidget::MainTasksWidget(QWidget* parent)
     m_pFailedTasksPart->setFilter("0", 4);
 
     m_pAllTasksPart = new CTasksPart(m_pMainModel);
-
-    /*== Test ======================*/
-    QWidget* w = new QWidget;
-    QHBoxLayout* l = new QHBoxLayout;
-    QPushButton* btn = new QPushButton("click");
-    l->addWidget(btn);
-    w->setLayout(l);
-    addTab(w, "tav");
-    connect(btn, &QPushButton::clicked, this, &MainTasksWidget::testSlot);
-    //===============================
 
     addTab(m_pAllTasksPart, tr("All tasks"));
     addTab(m_pPendingTasksPart, tr("Pending tasks"));
@@ -281,12 +271,5 @@ void MainTasksWidget::markAsDoneSlot(){
         int row = index.row();
         m_lslTasks.replace(row, {task, responsible, responsible_email, deadline, Task::DONE});
         m_pMainModel->select();
-    }
-}
-
-
-void MainTasksWidget::testSlot(){
-    for(const auto& val : m_lslTasks){
-        val.print();
     }
 }
