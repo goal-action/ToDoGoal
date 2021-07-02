@@ -31,10 +31,11 @@ ToDoGoal::ToDoGoal(QWidget *parent)
     QMenuBar* menuBar = new QMenuBar(this);
     m_pSettings = new QMenu(this);
     m_pSettingsLangsMenu = new QMenu(this);
-    m_pSettingsLangsMenu->addAction("English", this, &ToDoGoal::changeToEngishSignal);
-    m_pSettingsLangsMenu->addAction("Deutsche", this, &ToDoGoal::changeToGermanSignal);
-    m_pSettingsLangsMenu->addAction("Українська", this, &ToDoGoal::changeToUkrainianSignal);
-    m_pSettingsLangsMenu->addAction("Русский", this, &ToDoGoal::changeToRussianSignal);
+    m_pSettingsLangsMenu->setIcon(QIcon(":/icons/languages.png"));
+    m_pSettingsLangsMenu->addAction(QIcon(":/icons/en.png"), "English",    this, &ToDoGoal::changeToEngishSignal);
+    m_pSettingsLangsMenu->addAction(QIcon(":/icons/de.png"), "Deutsche",   this, &ToDoGoal::changeToGermanSignal);
+    m_pSettingsLangsMenu->addAction(QIcon(":/icons/ua.png"), "Українська", this, &ToDoGoal::changeToUkrainianSignal);
+    m_pSettingsLangsMenu->addAction(QIcon(":/icons/ru.png"), "Русский",    this, &ToDoGoal::changeToRussianSignal);
     m_pSettings->addMenu(m_pSettingsLangsMenu);
     menuBar->addMenu(m_pSettings);
     setMenuBar(menuBar);

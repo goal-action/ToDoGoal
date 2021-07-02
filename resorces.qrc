@@ -7,5 +7,10 @@
         <file>ToDoGoal_ru.qm</file>
         <file>ToDoGoal_ua.qm</file>
         <file>ToDoGoal_de.qm</file>
+        <file>icons/de.png</file>
+        <file>icons/en.png</file>
+        <file>icons/ru.png</file>
+        <file>icons/ua.png</file>
+        <file>icons/languages.png</file>
     </qresource>
 </RCC>
