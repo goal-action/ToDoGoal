@@ -134,25 +134,17 @@ protected:
     CTasksPart* m_pDoneTasksPart;
     CTasksPart* m_pFailedTasksPart;
     CTasksPart* m_pAllTasksPart;
-    QTranslator m_translator;
 
     bool isInDataBase(QString task, QString responsible, QString responsible_email, QString date);
 
 public:
     void retranslateUi();
-    void changeEvent(QEvent *event);
 
 public slots:
     void addTaskSlot();
     void removeTaskSlot();
     void editTaskSlot();
     void markAsDoneSlot();
-
-    //Слоты для установления языка
-    void setEnglishLanguageSlot();
-    void setGermanLanguageSlot();
-    void setUkrainianLanguageSlot();
-    void setRussianLanguageSlot();
 };
 
 #endif // MAINTASKSWIDGET_H

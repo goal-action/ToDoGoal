@@ -29,8 +29,8 @@ ToDoGoal::ToDoGoal(QWidget *parent)
 
     //Создание меню
     QMenuBar* menuBar = new QMenuBar(this);
-    m_pSettings = new QMenu("Settings", this);
-    m_pSettingsLangsMenu = new QMenu("Language", this);
+    m_pSettings = new QMenu(this);
+    m_pSettingsLangsMenu = new QMenu(this);
     m_pSettingsLangsMenu->addAction("English", this, &ToDoGoal::changeToEngishSignal);
     m_pSettingsLangsMenu->addAction("Deutsche", this, &ToDoGoal::changeToGermanSignal);
     m_pSettingsLangsMenu->addAction("Українська", this, &ToDoGoal::changeToUkrainianSignal);
@@ -39,16 +39,55 @@ ToDoGoal::ToDoGoal(QWidget *parent)
     menuBar->addMenu(m_pSettings);
     setMenuBar(menuBar);
 
+    //Установка всех надписей
+    retranslateUi();
+
     //конекты сигналов и слотов
     connect(m_pAddAction,        &QAction::triggered, m_pMainTasksWidget, &MainTasksWidget::addTaskSlot);
     connect(m_pRemoveAction,     &QAction::triggered, m_pMainTasksWidget, &MainTasksWidget::removeTaskSlot);
     connect(m_pEditAction,       &QAction::triggered, m_pMainTasksWidget, &MainTasksWidget::editTaskSlot);
     connect(m_pMarkAsDoneAction, &QAction::triggered, m_pMainTasksWidget, &MainTasksWidget::markAsDoneSlot);
 
-    connect(this, &ToDoGoal::changeToEngishSignal, m_pMainTasksWidget, &MainTasksWidget::setEnglishLanguageSlot);
-    connect(this, &ToDoGoal::changeToGermanSignal, m_pMainTasksWidget, &MainTasksWidget::setGermanLanguageSlot);
-    connect(this, &ToDoGoal::changeToUkrainianSignal, m_pMainTasksWidget, &MainTasksWidget::setUkrainianLanguageSlot);
-    connect(this, &ToDoGoal::changeToRussianSignal, m_pMainTasksWidget, &MainTasksWidget::setRussianLanguageSlot);
+    connect(this, &ToDoGoal::changeToEngishSignal,    this, &ToDoGoal::setEnglishLanguageSlot);
+    connect(this, &ToDoGoal::changeToGermanSignal,    this, &ToDoGoal::setGermanLanguageSlot);
+    connect(this, &ToDoGoal::changeToUkrainianSignal, this, &ToDoGoal::setUkrainianLanguageSlot);
+    connect(this, &ToDoGoal::changeToRussianSignal,   this, &ToDoGoal::setRussianLanguageSlot);
+}
+
+
+void ToDoGoal::retranslateUi(){
+    m_pSettings->setTitle(tr("Settings"));
+    m_pSettingsLangsMenu->setTitle(tr("Language"));
+    m_pMainTasksWidget->retranslateUi();
+}
+
+
+void ToDoGoal::changeEvent(QEvent *event){
+     //В случае получения события изменения языка приложения
+     if (event->type() == QEvent::LanguageChange) {
+         retranslateUi();    // переведём окно заново
+     }
+}
+
+
+void ToDoGoal::setEnglishLanguageSlot(){
+    m_translator.load(":/ToDoGoal_en.qm");
+    qApp->installTranslator(&m_translator);
+}
+
+void ToDoGoal::setGermanLanguageSlot(){
+    m_translator.load(":/ToDoGoal_de.qm");
+    qApp->installTranslator(&m_translator);
+}
+
+void ToDoGoal::setUkrainianLanguageSlot(){
+    m_translator.load(":/ToDoGoal_ua.qm");
+    qApp->installTranslator(&m_translator);
+}
+
+void ToDoGoal::setRussianLanguageSlot(){
+    m_translator.load(":/ToDoGoal_ru.qm");
+    qApp->installTranslator(&m_translator);
 }
 
 

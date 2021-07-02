@@ -39,9 +39,6 @@ MainTasksWidget::MainTasksWidget(QWidget* parent)
     addTab(m_pPendingTasksPart, tr("Pending tasks"));
     addTab(m_pDoneTasksPart, tr("Done tasks"));
     addTab(m_pFailedTasksPart, tr("Failed tasks"));
-
-    //== Установка надписей ================================================
-    retranslateUi();
 }
 
 
@@ -280,7 +277,6 @@ void MainTasksWidget::markAsDoneSlot(){
 
 
 void MainTasksWidget::retranslateUi(){
-    qDebug() << "retranslateUi()";
     m_pPendingTasksPart->setHeaderData();
     m_pDoneTasksPart->setHeaderData();
     m_pFailedTasksPart->setHeaderData();
@@ -289,34 +285,3 @@ void MainTasksWidget::retranslateUi(){
     setTabText(2, tr("Done tasks"));
     setTabText(3, tr("Failed tasks"));
 }
-
-
-void MainTasksWidget::changeEvent(QEvent *event)
-{
-    qDebug() << "changeEvent(QEvent *event)";
-    // В случае получения события изменения языка приложения
-    if (event->type() == QEvent::LanguageChange) {
-        retranslateUi();    // переведём окно заново
-    }
-}
-
-void MainTasksWidget::setEnglishLanguageSlot(){
-    m_translator.load(":/ToDoGoal_en.qm");
-    qApp->installTranslator(&m_translator);
-}
-
-void MainTasksWidget::setGermanLanguageSlot(){
-    m_translator.load(":/ToDoGoal_de.qm");
-    qApp->installTranslator(&m_translator);
-}
-
-void MainTasksWidget::setUkrainianLanguageSlot(){
-    m_translator.load(":/ToDoGoal_ua.qm");
-    qApp->installTranslator(&m_translator);
-}
-
-void MainTasksWidget::setRussianLanguageSlot(){
-    m_translator.load(":/ToDoGoal_ru.qm");
-    qApp->installTranslator(&m_translator);
-}
-

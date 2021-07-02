@@ -4,8 +4,8 @@
         <file>icons/edit.png</file>
         <file>icons/remove.png</file>
         <file>icons/done.png</file>
-        <file>ToDoGoal_de.qm</file>
         <file>ToDoGoal_ru.qm</file>
         <file>ToDoGoal_ua.qm</file>
+        <file>ToDoGoal_de.qm</file>
     </qresource>
 </RCC>
