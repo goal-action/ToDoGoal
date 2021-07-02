@@ -33,3 +33,5 @@ DISTFILES += \
     ToDoGoal_de.ts \
     ToDoGoal_ru.ts \
     ToDoGoal_ua.ts
+
+RC_FILE = appIcon.rc
