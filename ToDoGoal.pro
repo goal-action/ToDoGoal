@@ -26,3 +26,10 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     resorces.qrc
+
+TRANSLATIONS = ToDoGoal_ru.ts ToDoGoal_ua.ts ToDoGoal_de.ts
+
+DISTFILES += \
+    ToDoGoal_de.ts \
+    ToDoGoal_ru.ts \
+    ToDoGoal_ua.ts

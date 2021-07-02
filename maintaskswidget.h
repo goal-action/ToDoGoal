@@ -61,20 +61,20 @@ public:
     NewTaskDialog(QWidget* parent = nullptr)
         :QDialog(parent)
     {
-        QLabel* descriptionLabel = new QLabel("Description:", this);
+        QLabel* descriptionLabel = new QLabel(tr("Description:"), this);
         description = new QTextEdit(this);
 
-        QLabel* responsibleLabel = new QLabel("Responsible (Name & Surname):", this);
+        QLabel* responsibleLabel = new QLabel(tr("Responsible (Name & Surname):"), this);
         responsibleLine = new QLineEdit(this);
 
-        QLabel* emailLabel = new QLabel("Email:", this);
+        QLabel* emailLabel = new QLabel(tr("Email:"), this);
         emailLine = new QLineEdit(this);
 
-        QLabel* deadlineLabel = new QLabel("Deadline(yyyy-mm-dd):", this);
+        QLabel* deadlineLabel = new QLabel(tr("Deadline:"), this);
         deadlineLine = new QLineEdit(this);
 
-        okBtn = new QPushButton("ok");
-        cancelBtn = new QPushButton("cancel");
+        okBtn = new QPushButton(tr("ok"));
+        cancelBtn = new QPushButton(tr("cancel"));
 
 
         QHBoxLayout* buttonsLayout = new QHBoxLayout;
@@ -96,6 +96,8 @@ public:
 
         connect(okBtn, SIGNAL(clicked()), SLOT(accept()));
         connect(cancelBtn, SIGNAL(clicked()), SLOT(reject()));
+
+        setWindowTitle(tr("New task"));
     }
 
     QString getDescription(){return description->toPlainText();}
@@ -132,14 +134,25 @@ protected:
     CTasksPart* m_pDoneTasksPart;
     CTasksPart* m_pFailedTasksPart;
     CTasksPart* m_pAllTasksPart;
+    QTranslator m_translator;
 
     bool isInDataBase(QString task, QString responsible, QString responsible_email, QString date);
+
+public:
+    void retranslateUi();
+    void changeEvent(QEvent *event);
 
 public slots:
     void addTaskSlot();
     void removeTaskSlot();
     void editTaskSlot();
     void markAsDoneSlot();
+
+    //Слоты для установления языка
+    void setEnglishLanguageSlot();
+    void setGermanLanguageSlot();
+    void setUkrainianLanguageSlot();
+    void setRussianLanguageSlot();
 };
 
 #endif // MAINTASKSWIDGET_H

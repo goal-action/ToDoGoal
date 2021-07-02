@@ -21,6 +21,7 @@ public:
 
     void setFilter(const QString pattern, int column);
     void deleteRow(const int row);
+    void setHeaderData();
 
 signals:
 

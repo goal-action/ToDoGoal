@@ -13,6 +13,7 @@ class ToDoGoal : public QMainWindow
 public:
     ToDoGoal(QWidget *parent = nullptr);
     ~ToDoGoal();
+
 private:
     MainTasksWidget* m_pMainTasksWidget;
     QToolBar* m_pToolBar;
@@ -20,5 +21,14 @@ private:
     QAction* m_pRemoveAction;
     QAction* m_pEditAction;
     QAction* m_pMarkAsDoneAction;
+
+    QMenu* m_pSettings;
+    QMenu* m_pSettingsLangsMenu;
+
+signals:
+    void changeToEngishSignal();
+    void changeToGermanSignal();
+    void changeToUkrainianSignal();
+    void changeToRussianSignal();
 };
 #endif // TODOGOAL_H

@@ -27,3 +27,11 @@ void CTasksPart::setFilter(const QString pattern, int column){
 void CTasksPart::deleteRow(const int row){
     m_pSortModel->removeRow(row);
 }
+
+
+void CTasksPart::setHeaderData(){
+    m_pSortModel->setHeaderData(0, Qt::Horizontal, tr("Task"));
+    m_pSortModel->setHeaderData(1, Qt::Horizontal, tr("Responsible"));
+    m_pSortModel->setHeaderData(2, Qt::Horizontal, tr("Email"));
+    m_pSortModel->setHeaderData(3, Qt::Horizontal, tr("Deadline"));
+}
