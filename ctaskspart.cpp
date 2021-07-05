@@ -11,6 +11,7 @@ CTasksPart::CTasksPart(QAbstractItemModel* mainModel ,QWidget *parent)
     m_pView->hideColumn(4);
     m_pView->setSelectionBehavior(QAbstractItemView::SelectRows);
     m_pView->setSelectionMode(QAbstractItemView::SingleSelection);
+    m_pView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     QVBoxLayout* mainLayout = new QVBoxLayout;
     mainLayout->addWidget(m_pView);

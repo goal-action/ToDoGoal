@@ -4,22 +4,22 @@
 <context>
     <name>CTasksPart</name>
     <message>
-        <location filename="ctaskspart.cpp" line="33"/>
+        <location filename="ctaskspart.cpp" line="34"/>
         <source>Task</source>
         <translation>Завдання</translation>
     </message>
     <message>
-        <location filename="ctaskspart.cpp" line="34"/>
+        <location filename="ctaskspart.cpp" line="35"/>
         <source>Responsible</source>
         <translation>Відповідальний</translation>
     </message>
     <message>
-        <location filename="ctaskspart.cpp" line="35"/>
+        <location filename="ctaskspart.cpp" line="36"/>
         <source>Email</source>
         <translation>Email</translation>
     </message>
     <message>
-        <location filename="ctaskspart.cpp" line="36"/>
+        <location filename="ctaskspart.cpp" line="37"/>
         <source>Deadline</source>
         <translation>Термін</translation>
     </message>
@@ -100,38 +100,52 @@
 <context>
     <name>NewTaskDialog</name>
     <message>
-        <location filename="maintaskswidget.h" line="64"/>
+        <location filename="maintaskswidget.h" line="155"/>
         <source>Description:</source>
         <translation>Пояснення:</translation>
     </message>
     <message>
-        <location filename="maintaskswidget.h" line="67"/>
+        <location filename="maintaskswidget.h" line="158"/>
         <source>Responsible (Name &amp; Surname):</source>
         <oldsource>(Responsible (Name &amp; Surname):</oldsource>
         <translation>Відповідальний(ім&apos;я та прізвище):</translation>
     </message>
     <message>
-        <location filename="maintaskswidget.h" line="70"/>
+        <location filename="maintaskswidget.h" line="161"/>
         <source>Email:</source>
         <translation>Email:</translation>
     </message>
     <message>
-        <location filename="maintaskswidget.h" line="73"/>
-        <source>Deadline:</source>
-        <translation>Термін:</translation>
+        <location filename="maintaskswidget.h" line="164"/>
+        <source>Deadline (dd-mm-yyyy):</source>
+        <translation>Термін (дд-мм-рррр):</translation>
     </message>
     <message>
-        <location filename="maintaskswidget.h" line="76"/>
+        <location filename="maintaskswidget.h" line="252"/>
+        <source>Invalid date</source>
+        <translation>Недоступна дата</translation>
+    </message>
+    <message>
+        <location filename="maintaskswidget.h" line="257"/>
+        <source>Valid date</source>
+        <translation>Доступна дата</translation>
+    </message>
+    <message>
+        <source>Deadline:</source>
+        <translation type="vanished">Термін:</translation>
+    </message>
+    <message>
+        <location filename="maintaskswidget.h" line="186"/>
         <source>ok</source>
         <translation>ок</translation>
     </message>
     <message>
-        <location filename="maintaskswidget.h" line="77"/>
+        <location filename="maintaskswidget.h" line="187"/>
         <source>cancel</source>
         <translation>відмінити</translation>
     </message>
     <message>
-        <location filename="maintaskswidget.h" line="100"/>
+        <location filename="maintaskswidget.h" line="222"/>
         <source>New task</source>
         <translation>Нове завдання</translation>
     </message>
@@ -139,12 +153,12 @@
 <context>
     <name>ToDoGoal</name>
     <message>
-        <location filename="todogoal.cpp" line="59"/>
+        <location filename="todogoal.cpp" line="60"/>
         <source>Settings</source>
         <translation>Налаштування</translation>
     </message>
     <message>
-        <location filename="todogoal.cpp" line="60"/>
+        <location filename="todogoal.cpp" line="61"/>
         <source>Language</source>
         <translation>Мова</translation>
     </message>
